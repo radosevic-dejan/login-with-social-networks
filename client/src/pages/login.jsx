@@ -6,6 +6,10 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const googleLogin = () => {
+    window.open("http://localhost:5000/auth/google", "_self");
+  }
+
   const handleChange = (e, setChange) => {
     setChange(e.target.value);
   };
@@ -18,7 +22,7 @@ export const Login = () => {
             login with social networks and login with mail and password */}
       <div className="flex justify-between">
         <div className="flex flex-col justify-between">
-          <div>
+          <div onClick={ googleLogin }>
             <FcGoogle className="" />
           </div>
           <div>
