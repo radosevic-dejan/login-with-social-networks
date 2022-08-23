@@ -1,16 +1,17 @@
 import passport from "passport";
 import Strategy from "passport-google-oauth20";
+import * as GHStrategy from "passport-github2"
 // import GoogleStrategy from module passport-google-oauth20 as type module
 
 const GoogleStrategy = Strategy;
+const GithubStrategy = GHStrategy.Strategy;
 // const FacebookStrategy = Strategy;
-// const GithubStrategy = Strategy;
 
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_SECRET;
 
-// const GITHUB_CLIENT_ID = process.env.GITHUB_ID;
-// const GITHUB_CLIENT_SECRET = process.env.GITHUB_SECRET;
+const GITHUB_CLIENT_ID = process.env.GITHUB_ID;
+const GITHUB_CLIENT_SECRET = process.env.GITHUB_SECRET;
 
 // const FACEBOOK_CLIENT_ID = process.env.FACEBOOK_ID;
 // const FACEBOOK_CLIENT_SECRET = process.env.FACEBOOK_SECRET;
@@ -28,17 +29,17 @@ passport.use(
   }
 );
 
-// // GITHUB
-// passport.use(
-//   new GithubStrategy({
-//     clientID: GITHUB_CLIENT_ID,
-//     clientSecret: GITHUB_CLIENT_SECRET,
-//     callbackURL: "/auth/github/callback",
-//   }),
-//   function (accessToken, refreshToken, profile, done) {
-//     done(null, profile);
-//   }
-// );
+// GITHUB
+passport.use(
+  new GithubStrategy({
+    clientID: GITHUB_CLIENT_ID,
+    clientSecret: GITHUB_CLIENT_SECRET,
+    callbackURL: "/auth/github/callback",
+  }),
+  function (accessToken, refreshToken, profile, done) {
+    done(null, profile);
+  }
+);
 
 // // FACEBOOK
 // passport.use(
