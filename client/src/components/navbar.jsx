@@ -6,9 +6,9 @@ export const Navbar = ({ user }) => {
   }
 
   return (
-    <nav className="flex justify-between align-center">
+    <nav className="flex justify-between align-center mt-3 mx-2">
       <span>
-        <NavLink to="/" className="text-blue no-underline pointer">Logo</NavLink>
+        <NavLink to="/" className="text-blue no-underline pointer font-bold uppercase">Logo</NavLink>
       </span>
       {
         user ? (
@@ -20,7 +20,7 @@ export const Navbar = ({ user }) => {
         <li className="pointer" onClick={ logout }>Logout</li>
       </ul>
         ) : (
-          <NavLink to="/login" className="btn btn-blue">Login</NavLink>
+          <NavLink to="/login" className="text-slate-700 border border-slate-700 rounded-lg px-4 py-2 hover:text-white  hover:bg-slate-700 hover:border-white">Login</NavLink>
         )
       }
       
